@@ -25,56 +25,6 @@ const services = [
   },
 ];
 
-const education = [
-  {
-    title: "B.Sc. in Computer Science",
-    meta: "Southeast University / Running 3rd Semester",
-    body: "Focused on programming, backend systems, databases, networking, and infrastructure fundamentals.",
-  },
-  {
-    title: "DevOps & Infrastructure Track",
-    meta: "Linux, Docker, AWS, CI/CD, and Automation",
-    body: "Actively learning how to deploy reliable, secure, and scalable web solutions.",
-  },
-];
-
-const certificates = [
-  {
-    title: "CCNA",
-    meta: "Cisco Networking",
-    body: "Networking fundamentals, routing, switching, IP services, and troubleshooting concepts.",
-  },
-  {
-    title: "Red Hat",
-    meta: "Linux Administration",
-    body: "Linux server administration, shell commands, permissions, services, and system management.",
-  },
-  {
-    title: "Linux",
-    meta: "Operating Systems",
-    body: "Command-line workflow, file systems, terminal productivity, and server operations.",
-  },
-];
-
-const skillGroups = [
-  {
-    title: "Frontend",
-    skills: ["HTML5", "CSS3", "JavaScript (ES6)", "React", "Next.js"],
-  },
-  {
-    title: "Backend & DB",
-    skills: ["Node.js", "Python", "MySQL"],
-  },
-  {
-    title: "DevOps & Cloud",
-    skills: ["Linux (Ubuntu/RedHat)", "Docker", "AWS", "Git", "GitHub"],
-  },
-  {
-    title: "Networking",
-    skills: ["Cisco Packet Tracer", "CCNA Basics"],
-  },
-];
-
 const learningNotes = [
   {
     title: "CI/CD Automation",
@@ -142,8 +92,8 @@ export default function Home() {
         <nav>
           <a href="#about">About</a>
           <a href="#services">Services</a>
-          <a href="#resume">Resume</a>
           <a href="#learning">Learning</a>
+          <a href="#resume">Resume</a>
           <a href="#contact">Contact</a>
         </nav>
       </aside>
@@ -211,16 +161,6 @@ export default function Home() {
                   </article>
                 ))}
               </div>
-              <div className="button-row">
-                <a
-                  className="secondary-button"
-                  href="/Maya_Akter_Mita_DevOps_Resume.pdf"
-                  download
-                >
-                  <Icon name="download" />
-                  Download Resume
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -236,44 +176,6 @@ export default function Home() {
                 <p>{service.body}</p>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section id="resume" className="content-section">
-          <div className="section-heading-row">
-            <div>
-              <p className="section-kicker">Check out my resume</p>
-              <h2>Resume</h2>
-            </div>
-            <a
-              className="primary-button"
-              href="/Maya_Akter_Mita_DevOps_Resume.pdf"
-              download
-            >
-              <Icon name="download" />
-              Download Resume
-            </a>
-          </div>
-          <div className="resume-grid">
-            <Timeline title="Education" items={education} />
-            <Timeline title="Certificates" items={certificates} />
-          </div>
-
-          <div className="toolkit-section">
-            <p className="section-kicker">My technical toolkit</p>
-            <h3>Skills</h3>
-            <div className="toolkit-grid">
-              {skillGroups.map((group) => (
-                <article className="toolkit-card" key={group.title}>
-                  <h4>{group.title}</h4>
-                  <div className="skill-tags">
-                    {group.skills.map((skill) => (
-                      <span key={skill}>{skill}</span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -293,6 +195,19 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section id="resume" className="content-section resume-download-section">
+          <p className="section-kicker">Check out my resume</p>
+          <h2>Resume</h2>
+          <a
+            className="primary-button"
+            href="/Maya_Akter_Mita_DevOps_Resume.pdf"
+            download
+          >
+            <Icon name="download" />
+            Download Resume
+          </a>
         </section>
 
         <section id="contact" className="content-section contact-section">
@@ -339,27 +254,6 @@ export default function Home() {
         </section>
       </div>
     </main>
-  );
-}
-
-function Timeline({
-  title,
-  items,
-}: {
-  title: string;
-  items: { title: string; meta: string; body: string }[];
-}) {
-  return (
-    <div className="timeline">
-      <h3>{title}</h3>
-      {items.map((item) => (
-        <article key={item.title}>
-          <h4>{item.title}</h4>
-          <span>{item.meta}</span>
-          <p>{item.body}</p>
-        </article>
-      ))}
-    </div>
   );
 }
 
