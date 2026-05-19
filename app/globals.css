@@ -254,9 +254,44 @@ textarea {
 .service-card p,
 .timeline p,
 .blog-card p,
-.contact-info p {
+.contact-info p,
+.about-focus-card p,
+.project-card p,
+.section-lede {
   color: var(--muted);
   line-height: 1.8;
+}
+
+.about-grid h5 {
+  margin: 28px 0 16px;
+  color: var(--foreground);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.about-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.about-focus-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+}
+
+.about-focus-card strong {
+  color: var(--accent-warm);
+  font-size: 15px;
+}
+
+.about-focus-card p {
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 .info-list {
@@ -282,11 +317,13 @@ textarea {
 }
 
 .primary-button,
+.secondary-button,
 .filter-row button {
   display: inline-flex;
   min-height: 46px;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   border: 0;
   border-radius: 999px;
   background: var(--accent);
@@ -299,10 +336,53 @@ textarea {
   padding: 0 24px;
 }
 
+.secondary-button {
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+  color: var(--foreground);
+  padding: 0 22px;
+}
+
+.primary-button svg,
+.secondary-button svg {
+  height: 14px;
+  width: 14px;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.social-row svg,
+.project-actions svg,
+.contact-socials svg {
+  height: 18px;
+  width: 18px;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.button-row,
+.section-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-heading-row {
+  justify-content: space-between;
+  margin-bottom: 34px;
+}
+
+.section-heading-row h2 {
+  margin-bottom: 0;
+}
+
 .card-grid,
 .portfolio-grid,
 .blog-grid,
-.skills-grid {
+.skills-grid,
+.project-grid,
+.toolkit-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
@@ -310,6 +390,8 @@ textarea {
 
 .service-card,
 .work-card,
+.project-card,
+.toolkit-card,
 .blog-card,
 .timeline article,
 .contact-form,
@@ -332,10 +414,73 @@ textarea {
 
 .service-card h3,
 .work-card h3,
+.project-card h3,
 .blog-card h3 {
   margin: 18px 0 10px;
   font-size: 20px;
   font-weight: 800;
+}
+
+.project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+  position: relative;
+  min-height: 310px;
+  padding: 30px;
+  background:
+    linear-gradient(145deg, rgba(0, 184, 217, 0.16), rgba(244, 183, 64, 0.08)),
+    var(--panel);
+}
+
+.project-card > span,
+.project-card > strong {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.project-card > strong {
+  display: block;
+  margin-top: 22px;
+  color: var(--accent-warm);
+}
+
+.project-actions {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 10px;
+}
+
+.project-actions a,
+.contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--foreground);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.project-actions a {
+  height: 42px;
+  width: 42px;
+}
+
+.project-actions a:hover,
+.contact-socials a:hover,
+.secondary-button:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
 }
 
 .timeline h3 {
@@ -375,6 +520,47 @@ textarea {
 .skills-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 48px;
+}
+
+.toolkit-section {
+  margin-top: 54px;
+}
+
+.toolkit-section h3 {
+  margin: 8px 0 24px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.toolkit-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.toolkit-card {
+  padding: 24px;
+}
+
+.toolkit-card h4 {
+  margin-bottom: 16px;
+  color: var(--accent-warm);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #111;
+  color: #dcdcdc;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 11px;
 }
 
 .skill > div:first-child {
@@ -431,6 +617,12 @@ textarea {
   padding: 26px;
 }
 
+.section-lede {
+  max-width: 780px;
+  margin: -18px 0 28px;
+  font-size: 17px;
+}
+
 .contact-form,
 .contact-info {
   padding: 28px;
@@ -465,6 +657,24 @@ textarea {
   display: block;
   margin-top: 18px;
   color: var(--foreground);
+}
+
+.contact-panel {
+  width: min(780px, 100%);
+}
+
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.contact-socials a {
+  min-height: 44px;
+  gap: 9px;
+  padding: 0 16px;
+  font-weight: 800;
 }
 
 @media (max-width: 860px) {
@@ -527,8 +737,20 @@ textarea {
   .card-grid,
   .portfolio-grid,
   .blog-grid,
-  .skills-grid {
+  .skills-grid,
+  .project-grid,
+  .toolkit-grid,
+  .about-focus-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-card {
+    min-height: 330px;
   }
 
   .portrait-panel {
