@@ -109,19 +109,10 @@ export default function Home() {
           <p className="hero-subtitle">
             I&apos;m a Web Developer, DevOps Learner, and Cloud Enthusiast.
           </p>
-          <div className="social-row" aria-label="Social links">
-            {contactLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                aria-label={link.label}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              >
-                <Icon name={link.icon} />
-              </a>
-            ))}
-          </div>
+          <p className="hero-motivation">
+            Learning every day, building with purpose, and growing one project
+            at a time.
+          </p>
         </div>
         <a href="#about" className="scroll-link">
           Get to know me
